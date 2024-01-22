@@ -1,0 +1,28 @@
+receivers:
+  filelog:
+    include: [ ./sample.log ]
+    start_at: beginning
+
+exporters:
+  logging:
+  elasticsearch/log:
+    oauth:
+      authenticator: oauth2client
+    endpoints: [ "http://localhost:9200/" ]
+    index: my_log_index 
+
+extensions:
+  oauth2client:
+    client_id: <client_id>
+    client_secret: <client_secret>
+    token_url: https://<host>/oauth2/token
+
+service:
+  extensions: [oauth2client]
+  pipelines:
+    logs:
+      receivers: [filelog]
+      processors: []
+      exporters: 
+        - logging
+        - elasticsearch/log

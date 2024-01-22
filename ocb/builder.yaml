@@ -1,0 +1,23 @@
+dist:
+  name: otelcol-dev
+  description: Basic OTel Collector distribution for Developers
+  output_path: ./otelcol-dev
+  otelcol_version: 0.92.0
+
+exporters:
+  - gomod:
+      go.opentelemetry.io/collector/exporter/loggingexporter v0.92.0
+  - gomod:
+      github.com/open-telemetry/opentelemetry-collector-contrib/exporter/elasticsearchexporter v0.92.0
+
+receivers:
+  - gomod:
+      github.com/open-telemetry/opentelemetry-collector-contrib/receiver/filelogreceiver  v0.92.0
+
+extensions:
+  - gomod: 
+      github.com/open-telemetry/opentelemetry-collector-contrib/extension/oauth2clientauthextension v0.92.0
+
+
+replaces:
+  - github.com/open-telemetry/opentelemetry-collector-contrib/exporter/elasticsearchexporter => /Users/hvaghani221/go/src/github.com/hvaghani221/opentelemetry-collector-contrib/exporter/elasticsearchexporter

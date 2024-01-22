@@ -1,0 +1,1 @@
+A reverse proxy for elasticsearch. It authenticates incoming requests using OAuth2 using [ory.sh](https://www.ory.sh/). Refer [Run your own OAuth2 Server](https://www.ory.sh/run-oauth2-server-open-source-api-security/) for configurations.
